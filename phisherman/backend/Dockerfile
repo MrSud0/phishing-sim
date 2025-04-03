@@ -1,11 +1,5 @@
 FROM node:23.8-bullseye
 
-# Set the working directory
-WORKDIR /app
-
-# Copy the application code
-COPY . .
-
 # Install dependencies
 RUN apt-get update && apt-get install -y \
   sqlite3 \
@@ -27,10 +21,14 @@ RUN apt-get update && apt-get install -y \
   xdg-utils \
   libu2f-udev \
   chromium
+  
+  
+# Set the working directory
+WORKDIR /app
 
-RUN npm install
-
-
+# Copy the application code
+COPY . .
+RUN npm install --force
 
 
 # Expose the port
