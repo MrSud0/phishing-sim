@@ -3,8 +3,8 @@ FROM node:23.8-bullseye
 # Set the working directory
 WORKDIR /app
 
-# Copy package files first for caching
-COPY package*.json ./
+# Copy the application code
+COPY . .
 
 # Install dependencies
 RUN apt-get update && apt-get install -y \
@@ -30,8 +30,7 @@ RUN apt-get update && apt-get install -y \
 
 RUN npm install
 
-# Copy the rest of the application code
-COPY . .
+
 
 
 # Expose the port

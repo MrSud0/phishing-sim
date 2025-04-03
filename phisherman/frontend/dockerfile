@@ -4,12 +4,11 @@ FROM node:23.8-bullseye
 # Set working directory
 WORKDIR /app
 
-# Copy package files and install dependencies
-COPY package.json package-lock.json ./
-RUN npm install --force
-
 # Copy app files
 COPY . .
+
+RUN npm install --force
+
 
 # Expose frontend port
 EXPOSE 5173
