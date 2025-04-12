@@ -71,6 +71,7 @@ exports.automatePhishingAttack = async (req, res) => {
 
   try {
     const browser = await puppeteer.launch({
+      executablePath: '/usr/bin/chromium',
       headless: true,
       args: ["--no-sandbox", "--disable-setuid-sandbox", "--ignore-certificate-errors"],
     });
