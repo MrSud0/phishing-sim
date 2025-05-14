@@ -8,7 +8,7 @@ services:
   backend:
     build: ./backend
     volumes:
-      - ./backend:/app
+      #- ./backend:/app
       - ./certs:/app/certs
       - ./hosts:/etc/hosts
     #ports:
@@ -24,8 +24,8 @@ services:
   frontend:
     build: ./frontend
     volumes:
-      - ./frontend:/app
-      - /app/node_modules
+      #- ./frontend:/app
+      #- /app/node_modules
       - ./certs:/app/certs
       - ./hosts:/etc/hosts
     #ports:
