@@ -5,7 +5,7 @@ WORKDIR /app
 
 # Copy package files first for caching
 COPY package*.json ./
-
+RUN npm install --force
 # Install dependencies
 RUN apt-get update && apt-get install -y \
   sqlite3 \

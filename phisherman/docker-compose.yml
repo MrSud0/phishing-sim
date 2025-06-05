@@ -8,11 +8,11 @@ services:
   backend:
     build: ./backend
     volumes:
-      #- ./backend:/app
+      - ./backend:/app
       - ./certs:/app/certs
       - ./hosts:/etc/hosts
-    #ports:
-     # - "3000:3000"
+    ports:
+      - "3000:3000"
     environment:
       - NODE_ENV=development
 
@@ -24,12 +24,12 @@ services:
   frontend:
     build: ./frontend
     volumes:
-      #- ./frontend:/app
-      #- /app/node_modules
+      - ./frontend:/app
+      - /app/node_modules
       - ./certs:/app/certs
       - ./hosts:/etc/hosts
-    #ports:
-     # - "443:443" # Vite HTTPS port
+    ports:
+      - "443:443"  #Vite HTTPS port
     depends_on:
       - backend
     networks:
@@ -50,9 +50,9 @@ services:
 
   mailhog:
       image: mailhog/mailhog
-     # ports:
-     #   - "1025:1025"      # SMTP port
-      #  - "8025:8025"      # Web interface for MailHog
+      ports:
+        - "1025:1025"     #  SMTP port
+        - "8025:8025"      # Web interface for MailHog
       networks:
         custom_net:
           ipv4_address: 172.13.37.13
