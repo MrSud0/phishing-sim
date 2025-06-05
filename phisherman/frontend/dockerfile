@@ -7,13 +7,14 @@ WORKDIR /app
 # Copy package files and install dependencies
 COPY package.json package-lock.json ./
 
+# Install dependencies with force to handle any conflicts
 RUN npm install --force
 
 # Copy app files
 COPY . .
 
-# Expose frontend port
-EXPOSE 5173
+# Expose frontend port (match with vite.config.js)
+EXPOSE 443
 
-# Start the React app using Vite - keep in mind that this binds the IP as well so change this if you make network stack changes.
-CMD ["npm", "run", "dev", "--", "--host", "172.13.37.11"]
+# Start the React app using Vite with the correct host binding
+CMD ["npm", "run", "dev", "--", "--host", "172.13.37.11", "--port", "443"]

@@ -1,17 +1,15 @@
 FROM node:23.8-bullseye
 
+# Set the working directory
 WORKDIR /app
 
+# Copy package files first for better caching
 COPY package*.json ./
 
+# Install Node.js dependencies first
+RUN npm install --force
 
-# Copy the rest of the application code
-COPY . .
-
-RUN npm install
-
-
-# Install dependencies
+# Install system dependencies
 RUN apt-get update && apt-get install -y \
   sqlite3 \
   openssl \
@@ -31,9 +29,13 @@ RUN apt-get update && apt-get install -y \
   libappindicator3-1 \
   xdg-utils \
   libu2f-udev \
-  chromium
+  chromium \
+  && apt-get clean \
+  && rm -rf /var/lib/apt/lists/*
 
-RUN npm install
+# Copy the rest of the application code
+COPY . .
+
 # Expose the port
 EXPOSE 3000
 
