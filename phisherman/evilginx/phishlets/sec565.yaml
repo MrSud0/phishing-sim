@@ -1,6 +1,11 @@
 min_ver: '3.0.0'
 proxy_hosts:
-  - {phish_sub: '', orig_sub: '', domain: 'sec565.rocks', session: true, is_landing: true, auto_filter: true}
+  - {phish_sub: '',
+   orig_sub: '',
+    domain: 'sec565.rocks',
+     session: true, 
+     is_landing: true,
+      auto_filter: true}
 auth_tokens:
   - domain: 'sec565.rocks'
     path: '/api/auth/validate-token'

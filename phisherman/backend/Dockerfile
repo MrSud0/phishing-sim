@@ -1,11 +1,16 @@
 FROM node:23.8-bullseye
 
-# Set the working directory
 WORKDIR /app
 
-# Copy package files first for caching
 COPY package*.json ./
-RUN npm install --force
+
+
+# Copy the rest of the application code
+COPY . .
+
+RUN npm install
+
+
 # Install dependencies
 RUN apt-get update && apt-get install -y \
   sqlite3 \
@@ -28,12 +33,7 @@ RUN apt-get update && apt-get install -y \
   libu2f-udev \
   chromium
 
-RUN npm install --force
-
-# Copy the rest of the application code
-COPY . .
-
-
+RUN npm install
 # Expose the port
 EXPOSE 3000
 
