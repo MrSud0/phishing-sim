@@ -43,7 +43,7 @@ function Login() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              className="w-full p-3 border border-gray-300 rounded-lg focus:ring focus:ring-blue-300"
+              className="w-full p-3 border border-gray-300 rounded-lg focus:ring focus:ring-green-300"
               name = "email"
             />
           </div>
@@ -56,7 +56,7 @@ function Login() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
-              className="w-full p-3 border border-gray-300 rounded-lg focus:ring focus:ring-blue-300"
+              className="w-full p-3 border border-gray-300  rounded-lg focus:ring focus:ring-green-300"
               name="password"
             />
           </div>
@@ -65,7 +65,7 @@ function Login() {
 
           <button
             type="submit"
-            className="w-full bg-blue-500 text-white p-3 rounded-lg hover:bg-blue-600 transition"
+            className="w-full bg-emerald-400 text-white font-semibold p-3 rounded-lg hover:bg-emerald-500  transition"
           >
             Login
           </button>
@@ -76,7 +76,7 @@ function Login() {
           <p className="text-gray-600">Don't have an account?</p>
           <button
             onClick={() => navigate("/register")}
-            className="mt-2 w-full bg-gray-500 text-white p-3 rounded-lg hover:bg-gray-600 transition"
+            className="mt-2 w-full bg-gray-500 text-white p-3 font-semibold rounded-lg hover:bg-gray-600 transition"
           >
             Register
           </button>

@@ -10,10 +10,6 @@ import Menu from "../components/Menu";
 import { useNavigate } from "react-router-dom";
 import Footer from "../components/Footer";
 
-/**
- * Dashboard component for viewing and managing sensitive data.
- * Users must be authenticated to access this page.
- */
 function Dashboard() {
   const navigate = useNavigate();
   const [sensitiveData, setSensitiveData] = useState([]);
@@ -28,12 +24,9 @@ function Dashboard() {
     notes: "",
   });
   const [editingId, setEditingId] = useState(null);
-  const [message, setMessage] = useState(""); // Success/Error message
+  const [message, setMessage] = useState("");
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-  /**
-   * Runs on page load to validate the user's token before allowing access.
-   */
   useEffect(() => {
     const checkAuth = async () => {
       const isValid = await validateToken();
@@ -48,9 +41,6 @@ function Dashboard() {
     checkAuth();
   }, [navigate]);
 
-  /**
-   * Fetches sensitive data from the backend.
-   */
   const fetchData = async () => {
     try {
       const response = await getSensitiveData();
@@ -61,17 +51,10 @@ function Dashboard() {
     }
   };
 
-  /**
-   * Handles form input changes.
-   * @param {Event} e - The input change event.
-   */
   const handleInputChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  /**
-   * Submits a new sensitive data entry.
-   */
   const handleCreate = async () => {
     try {
       await createSensitiveData(formData);
@@ -84,9 +67,6 @@ function Dashboard() {
     }
   };
 
-  /**
-   * Updates an existing sensitive data entry.
-   */
   const handleUpdate = async () => {
     if (!editingId) return;
     try {
@@ -100,10 +80,6 @@ function Dashboard() {
     }
   };
 
-  /**
-   * Handles editing a selected entry.
-   * @param {Object} item - The sensitive data entry to edit.
-   */
   const handleEdit = (item) => {
     setFormData({
       fullName: item.fullName,
@@ -118,10 +94,6 @@ function Dashboard() {
     setEditingId(item.id);
   };
 
-  /**
-   * Deletes a sensitive data entry.
-   * @param {number} id - The ID of the entry to delete.
-   */
   const handleDelete = async (id) => {
     try {
       await deleteSensitiveData(id);
@@ -133,9 +105,6 @@ function Dashboard() {
     }
   };
 
-  /**
-   * Resets the form inputs.
-   */
   const resetForm = () => {
     setFormData({
       fullName: "",
@@ -155,77 +124,111 @@ function Dashboard() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className="min-h-screen bg-opacity-35">
       <Menu />
-      <div className="p-6">
-        <h1 className="text-3xl font-bold text-gray-800">Dashboard</h1>
-        <p className="text-gray-600 mt-2">Manage sensitive data securely.</p>
-
-        {/* ✅ Display messages */}
-        {message && <p className="text-center text-lg mt-4">{message}</p>}
-
-        {/* ✅ CRUD Form */}
-        <div className="mt-6 bg-white p-4 rounded shadow-md">
-          {Object.keys(formData).map((key) => (
-            <input
-              key={key}
-              name={key}
-              type="text"
-              placeholder={key.charAt(0).toUpperCase() + key.slice(1)}
-              className="p-2 border rounded w-full mt-2"
-              value={formData[key]}
-              onChange={handleInputChange}
-            />
-          ))}
-
-          {editingId ? (
-            <button onClick={handleUpdate} className="bg-green-500 text-white p-2 rounded mt-4 w-full">
-              Save Changes
-            </button>
-          ) : (
-            <button onClick={handleCreate} className="bg-blue-500 text-white p-2 rounded mt-4 w-full">
-              Add Data
-            </button>
+      
+      {/* Container with responsive padding */}
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-16 2xl:px-24 py-6">
+        <div className="max-w-7xl mx-auto">
+          <h1 className="text-3xl text-center bg-white p-6 rounded-lg font-bold text-slate-800">Dashboard</h1>
+          
+          {message && (
+            <div className="text-center text-lg mt-4 p-3 rounded-lg bg-emerald-100 text-emerald-800 border border-emerald-200">
+              {message}
+            </div>
           )}
-        </div>
 
-        {/* ✅ Display Data */}
-        <table className="mt-6 w-full border-collapse border border-gray-300 bg-white rounded shadow-md">
-          <thead>
-            <tr className="bg-gray-200">
-              {["Full Name", "SSN", "Credit Card", "Bank Account", "Phone", "Address", "Email", "Notes", "Actions"].map((header) => (
-                <th key={header} className="border p-2">
-                  {header}
-                </th>
+          {/* CRUD Form */}
+          <div className="mt-6 bg-white p-6 rounded-lg shadow-md border border-slate-200">
+            <h2 className="text-xl font-semibold mb-4 text-slate-800">
+              {editingId ? 'Edit Data' : 'Add New Data'}
+            </h2>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {Object.keys(formData).map((key) => (
+                <input
+                  key={key}
+                  name={key}
+                  type="text"
+                  placeholder={key.charAt(0).toUpperCase() + key.slice(1).replace(/([A-Z])/g, ' $1')}
+                  className="p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 text-slate-800 transition-colors"
+                  value={formData[key]}
+                  onChange={handleInputChange}
+                />
               ))}
-            </tr>
-          </thead>
-          <tbody>
-            {sensitiveData.map((item) => (
-              <tr key={item.id}>
-                {Object.keys(formData).map((field) => (
-                  <td key={field} className="border p-2">
-                    {item[field]}
-                  </td>
-                ))}
-                <td className="border p-2 flex space-x-2">
-                  <button
-                    onClick={() => handleEdit(item)}
-                    className="bg-yellow-500 text-white px-3 py-1 rounded"
+            </div>
+
+            <div className="mt-4">
+              {editingId ? (
+                <div className="flex space-x-4">
+                  <button 
+                    onClick={handleUpdate} 
+                    className="flex-1 bg-emerald-500 hover:bg-emerald-600 text-white p-3 rounded-lg transition-colors duration-200"
                   >
-                    Edit
+                    Save Changes
                   </button>
-                  <button
-                    onClick={() => handleDelete(item.id)}
-                    className="bg-red-500 text-white px-3 py-1 rounded"
+                  <button 
+                    onClick={resetForm} 
+                    className="flex-1 bg-slate-600 hover:bg-slate-700 text-white p-3 rounded-lg transition-colors duration-200"
                   >
-                    Delete
+                    Cancel
                   </button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+                </div>
+              ) : (
+                <button 
+                  onClick={handleCreate} 
+                  className="w-full bg-emerald-500 hover:bg-emerald-600 text-white p-3 rounded-lg transition-colors duration-200"
+                >
+                  Add Data
+                </button>
+              )}
+            </div>
+          </div>
+
+          {/* Data Table */}
+          <div className="mt-6 bg-white rounded-lg shadow-md overflow-hidden border border-slate-200">
+            <div className="overflow-x-auto">
+              <table className="w-full">
+                <thead className="bg-slate-800">
+                  <tr>
+                    {["Full Name", "SSN", "Credit Card", "Bank Account", "Phone", "Address", "Email", "Notes", "Actions"].map((header) => (
+                      <th key={header} className="px-4 py-3 text-left text-white font-medium">
+                        {header}
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {sensitiveData.map((item, index) => (
+                    <tr key={item.id} className={index % 2 === 0 ? 'bg-white' : 'bg-slate-50'}>
+                      {Object.keys(formData).map((field) => (
+                        <td key={field} className="px-4 py-3 text-slate-800 border-b border-slate-200">
+                          {item[field]}
+                        </td>
+                      ))}
+                      <td className="px-4 py-3 border-b border-slate-200">
+                        <div className="flex space-x-2">
+                          <button
+                            onClick={() => handleEdit(item)}
+                            className="px-3 py-1 bg-emerald-500 hover:bg-emerald-600 text-white rounded transition-colors duration-200"
+                          >
+                            Edit
+                          </button>
+                          <button
+                            onClick={() => handleDelete(item.id)}
+                            className="px-3 py-1 bg-red-500 hover:bg-red-600 text-white rounded transition-colors duration-200"
+                          >
+                            Delete
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
       </div>
       <Footer />
     </div>

@@ -1,7 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { logoutUser } from "../services/api"; // ✅ Use named import
-
+import { logoutUser } from "../services/api";
 
 function Menu() {
   const navigate = useNavigate();
@@ -19,34 +18,56 @@ function Menu() {
       console.error("Logout error:", err);
     }
 
-    localStorage.removeItem("authToken"); // ✅ Clear token from frontend
+    localStorage.removeItem("authToken");
     navigate("/login");
   };
 
   return (
-    <nav className="bg-gray-900 text-white p-4 shadow-md">
-      <ul className="flex justify-around">
-        <li>
-          <button onClick={() => navigate("/dashboard")} className="hover:text-emerald-300">
-            Dashboard
-          </button>
-        </li>
-        <li>
-          <button onClick={() => navigate("/users")} className="hover:text-emerald-300">
-            User Management
-          </button>
-        </li>
-        <li>
-          <button onClick={() => navigate("/phishing")} className="hover:text-emerald-300">
-            Phishing Simulation
-          </button>
-        </li>
-        <li>
-          <button onClick={handleLogout} className="hover:text-emerald-400">
-            Logout
-          </button>
-        </li>
-      </ul>
+    <nav className="bg-slate-800 text-white shadow-md">
+      {/* Container that matches the page containers */}
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-16 2xl:px-24">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex justify-between items-center py-4">
+            
+            {/* Logo/Brand section (optional) */}
+            <div className="flex items-center">
+              <h2 className="text-xl font-bold text-emerald-400">Phishing Simulator</h2>
+            </div>
+
+            {/* Navigation Links */}
+            <div className="flex space-x-1">
+              <button 
+                onClick={() => navigate("/dashboard")} 
+                className="text-white hover:text-emerald-400 transition-colors duration-200 px-4 py-2 rounded-lg hover:bg-slate-700 font-medium text-sm"
+              >
+                Dashboard
+              </button>
+              <button 
+                onClick={() => navigate("/users")} 
+                className="text-white hover:text-emerald-400 transition-colors duration-200 px-4 py-2 rounded-lg hover:bg-slate-700 font-medium text-sm"
+              >
+                User Management
+              </button>
+              <button 
+                onClick={() => navigate("/phishing")} 
+                className="text-white hover:text-emerald-400 transition-colors duration-200 px-4 py-2 rounded-lg hover:bg-slate-700 font-medium text-sm"
+              >
+                Phishing Simulation
+              </button>
+            </div>
+
+            {/* Logout section */}
+            <div>
+              <button 
+                onClick={handleLogout} 
+                className="text-white hover:text-red-400 transition-colors duration-200 px-4 py-2 rounded-lg hover:bg-slate-700 font-medium text-sm border border-slate-600 hover:border-red-400"
+              >
+                Logout
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </nav>
   );
 }

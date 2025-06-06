@@ -54,7 +54,7 @@ function MFA() {
               value={mfaCode}
               onChange={(e) => setMfaCode(e.target.value)}
               required
-              className="w-full p-3 border border-gray-300 rounded-lg focus:ring focus:ring-blue-300"
+              className="w-full p-3 border border-gray-300 rounded-lg focus:ring focus:ring-green-300"
               name = "mfa_code"
             />
           </div>
@@ -63,7 +63,7 @@ function MFA() {
 
           <button
             type="submit"
-            className="w-full bg-green-500 text-white p-3 rounded-lg hover:bg-green-600 transition"
+            className="w-full bg-emerald-400 font-semibold text-white p-3 rounded-lg hover:bg-emerald-500 transition"
           >
             Verify MFA
           </button>
@@ -71,7 +71,7 @@ function MFA() {
 
         <button
           onClick={() => navigate("/login")}
-          className="w-full mt-4 bg-gray-500 text-white p-3 rounded-lg hover:bg-gray-600 transition"
+          className="w-full mt-4 bg-gray-500 text-white font-semibold p-3 rounded-lg hover:bg-gray-600 transition"
         >
           Back to Login
         </button>

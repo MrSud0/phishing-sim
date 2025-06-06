@@ -18,14 +18,14 @@ function Index() {
         <div className="mt-6 space-y-4">
           <button
             onClick={() => navigate("/login")}
-            className="w-full bg-blue-500 text-white p-3 rounded-lg hover:bg-blue-600 transition"
+            className="w-full bg-emerald-400 text-white p-3 font-semibold rounded-lg hover:bg-emerald-500 transition"
           >
             Login
           </button>
 
           <button
             onClick={() => navigate("/phishing")}
-            className="w-full bg-red-500 text-white p-3 rounded-lg hover:bg-red-600 transition"
+            className="w-full bg-emerald-400 text-white p-3 font-semibold rounded-lg hover:bg-emerald-500 transition"
           >
             Automatic Phish Simulation
           </button>

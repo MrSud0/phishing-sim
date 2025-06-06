@@ -65,7 +65,7 @@ function Register() {
               value={firstName}
               onChange={(e) => setFirstName(e.target.value)}
               required
-              className="w-full p-3 border border-gray-300 rounded-lg focus:ring focus:ring-blue-300"
+              className="w-full p-3 border border-gray-300 rounded-lg focus:ring focus:ring-green-300"
             />
           </div>
 
@@ -77,7 +77,7 @@ function Register() {
               value={lastName}
               onChange={(e) => setLastName(e.target.value)}
               required
-              className="w-full p-3 border border-gray-300 rounded-lg focus:ring focus:ring-blue-300"
+              className="w-full p-3 border border-gray-300 rounded-lg focus:ring focus:ring-green-300"
             />
           </div>
 
@@ -89,7 +89,7 @@ function Register() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              className="w-full p-3 border border-gray-300 rounded-lg focus:ring focus:ring-blue-300"
+              className="w-full p-3 border border-gray-300 rounded-lg focus:ring focus:ring-green-300"
             />
           </div>
 
@@ -101,14 +101,14 @@ function Register() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
-              className="w-full p-3 border border-gray-300 rounded-lg focus:ring focus:ring-blue-300"
+              className="w-full p-3 border border-gray-300 rounded-lg focus:ring focus:ring-green-300"
             />
           </div>
 
           <button
             type="submit"
             className={`w-full p-3 rounded-lg transition ${
-              isSubmitting ? "bg-gray-400 cursor-not-allowed" : "bg-blue-500 hover:bg-blue-600 text-white"
+              isSubmitting ? "bg-gray-400 cursor-not-allowed" : "bg-emerald-400 font-semibold hover:bg-emerald-500 text-white"
             }`}
             disabled={isSubmitting}
           >

@@ -6,7 +6,7 @@ const Layout = ({ children }) => {
     <div 
       className="min-h-screen relative"
       style={{
-        backgroundImage: 'url("/wallpaper_login.png")',
+        backgroundImage: 'url("/nexova_background_3.jpg")',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
