@@ -1,4 +1,3 @@
-
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
@@ -11,7 +10,6 @@ export default defineConfig({
     tailwindcss()
   ],
   server: {
-    host: '172.13.37.11', // Bind to container IP
     port: 443,
     https: {
       key: fs.readFileSync("/app/certs/key.pem"),
