@@ -120,7 +120,16 @@ function Dashboard() {
   };
 
   if (!isAuthenticated) {
-    return <p className="text-white text-center mt-10">Verifying session...</p>;
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="bg-white bg-opacity-90 p-6 rounded-lg shadow-lg backdrop-blur-sm">
+          <div className="flex items-center space-x-3">
+            <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-emerald-500"></div>
+            <p className="text-slate-800 font-medium">Verifying session...</p>
+          </div>
+        </div>
+      </div>
+    );
   }
 
   return (
