@@ -27,22 +27,22 @@ function Menu() {
     <nav className="bg-gray-900 text-white p-4 shadow-md">
       <ul className="flex justify-around">
         <li>
-          <button onClick={() => navigate("/dashboard")} className="hover:text-blue-400">
+          <button onClick={() => navigate("/dashboard")} className="hover:text-emerald-300">
             Dashboard
           </button>
         </li>
         <li>
-          <button onClick={() => navigate("/users")} className="hover:text-blue-400">
+          <button onClick={() => navigate("/users")} className="hover:text-emerald-300">
             User Management
           </button>
         </li>
         <li>
-          <button onClick={() => navigate("/phishing")} className="hover:text-blue-400">
+          <button onClick={() => navigate("/phishing")} className="hover:text-emerald-300">
             Phishing Simulation
           </button>
         </li>
         <li>
-          <button onClick={handleLogout} className="hover:text-red-400">
+          <button onClick={handleLogout} className="hover:text-emerald-400">
             Logout
           </button>
         </li>

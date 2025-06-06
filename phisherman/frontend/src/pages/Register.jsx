@@ -52,7 +52,7 @@ function Register() {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-black">
+    <div className="flex items-center justify-center min-h-screen ">
       <div className="bg-white shadow-lg rounded-lg p-8 w-full max-w-md">
         <h2 className="text-3xl font-bold text-center text-gray-800 mb-6">Register</h2>
 

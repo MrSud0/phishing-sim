@@ -10,7 +10,7 @@ function Index() {
   const navigate = useNavigate();
 
   return (
-      <div className="flex items-center justify-center min-h-screen bg-black">
+      <div className="flex items-center justify-center min-h-screen">
       <div className="bg-white p-8 rounded-lg shadow-lg max-w-md text-center">
         <h1 className="text-2xl font-bold text-gray-800">Welcome to Phisherman</h1>
         <p className="text-gray-600 mt-2">Choose an option below to proceed.</p>
