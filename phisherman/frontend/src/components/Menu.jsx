@@ -31,26 +31,26 @@ function Menu() {
             
             {/* Logo/Brand section (optional) */}
             <div className="flex items-center">
-              <h2 className="text-xl font-bold text-emerald-400">Phishing Simulator</h2>
+              <h2 className="text-2xl font-bold text-emerald-400">Phishing Simulator</h2>
             </div>
 
             {/* Navigation Links */}
             <div className="flex space-x-1">
               <button 
                 onClick={() => navigate("/dashboard")} 
-                className="text-white hover:text-emerald-400 transition-colors duration-200 px-4 py-2 rounded-lg hover:bg-slate-700 font-medium text-sm"
+                className="text-white hover:text-emerald-400 transition-colors duration-200 px-4 py-2 rounded-lg hover:bg-slate-700 border border-slate-600 font-medium text-lg"
               >
                 Dashboard
               </button>
               <button 
                 onClick={() => navigate("/users")} 
-                className="text-white hover:text-emerald-400 transition-colors duration-200 px-4 py-2 rounded-lg hover:bg-slate-700 font-medium text-sm"
+                className="text-white hover:text-emerald-400 transition-colors duration-200 px-4 py-2 rounded-lg hover:bg-slate-700 border border-slate-600 font-medium text-lg"
               >
                 User Management
               </button>
               <button 
                 onClick={() => navigate("/phishing")} 
-                className="text-white hover:text-emerald-400 transition-colors duration-200 px-4 py-2 rounded-lg hover:bg-slate-700 font-medium text-sm"
+                className="text-white hover:text-emerald-400 transition-colors duration-200 px-4 py-2 rounded-lg hover:bg-slate-700 border border-slate-600 font-medium text-lg"
               >
                 Phishing Simulation
               </button>
@@ -60,7 +60,7 @@ function Menu() {
             <div>
               <button 
                 onClick={handleLogout} 
-                className="text-white hover:text-red-400 transition-colors duration-200 px-4 py-2 rounded-lg hover:bg-slate-700 font-medium text-sm border border-slate-600 hover:border-red-400"
+                className="text-white hover:text-red-400 transition-colors duration-200 px-4 py-2 rounded-lg hover:bg-slate-700 font-medium text-lg border border-slate-600 hover:border-red-400"
               >
                 Logout
               </button>

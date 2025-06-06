@@ -126,7 +126,16 @@ function UserManagement() {
       {/* Container with responsive padding */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-16 2xl:px-24 py-6">
         <div className="max-w-7xl mx-auto">
-          <h1 className="text-3xl text-center bg-white p-6 rounded-lg font-bold text-slate-800">User Management</h1>
+          {/* Simple Header */}
+        <div className="mb-6 bg-white bg-opacity-90 p-6 rounded-lg shadow-lg backdrop-blur-sm">
+          <div className="flex items-center">
+            <svg className="w-8 h-8 text-emerald-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z" />
+            </svg>
+            <h1 className="text-3xl font-bold text-slate-800">User Management</h1>
+          </div>
+          <p className="mt-2 text-slate-600 ml-11">Manage system users securely</p>
+        </div>
           
           {message && (
             <div className="text-center text-lg mt-4 p-3 rounded-lg bg-emerald-100 text-emerald-800 border border-emerald-200">

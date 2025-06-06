@@ -34,14 +34,18 @@ function PhishingSimulation() {
       <Menu />
       
       {/* Container with responsive padding */}
+      
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-20 2xl:px-32 py-8">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-7xl mx-auto">
           
-          {/* Header with semi-transparent background */}
-          <div className="text-center mb-8 bg-white bg-opacity-90 p-6 rounded-lg shadow-lg backdrop-blur-sm">
-            <h1 className="text-3xl font-bold text-slate-800 mb-2">🎣 Phishing Simulation</h1>
-            <p className="text-slate-600">Send a phishing email via MailHog for testing purposes.</p>
+          {/* Simple Header */}
+        <div className="mb-6 bg-white bg-opacity-90 p-6 rounded-lg shadow-lg backdrop-blur-sm">
+          <div className="flex items-center">
+            <h1 className="text-3xl font-bold text-slate-800">🎣 Phishing Simulation</h1>
           </div>
+          <p className="mt-2 text-slate-600 ml-11">Send phishing emails for testing purposes</p>
+        </div>
+
 
           {/* Main Form Card with semi-transparent background */}
           <div className="bg-white bg-opacity-95 p-8 rounded-lg shadow-lg border border-slate-200 backdrop-blur-sm">

@@ -139,8 +139,17 @@ function Dashboard() {
       {/* Container with responsive padding */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-16 2xl:px-24 py-6">
         <div className="max-w-7xl mx-auto">
-          <h1 className="text-3xl text-center bg-white p-6 rounded-lg font-bold text-slate-800">Dashboard</h1>
-          
+        {/* Simple Header */}
+        <div className="mb-6 bg-white bg-opacity-90 p-6 rounded-lg shadow-lg backdrop-blur-sm">
+          <div className="flex items-center">
+            <svg className="w-8 h-8 text-emerald-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z" />
+            </svg>
+            <h1 className="text-3xl font-bold text-slate-800">Dashboard</h1>
+          </div>
+          <p className="mt-2 text-slate-600 ml-11">Manage sensitive data securely</p>
+        </div>
+                    
           {message && (
             <div className="text-center text-lg mt-4 p-3 rounded-lg bg-emerald-100 text-emerald-800 border border-emerald-200">
               {message}
